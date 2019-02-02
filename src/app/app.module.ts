@@ -1,16 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import {StoreModule} from '@ngrx/store';
+import {reducers, metaReducers} from './reducers';
+import {LoginModule} from "./login/login.module";
+import {SharedModule} from "./shared/shared.module";
 
 registerLocaleData(en);
 
@@ -21,13 +22,15 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgZorroAntdModule,
+    SharedModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers, {metaReducers}),
+    LoginModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
