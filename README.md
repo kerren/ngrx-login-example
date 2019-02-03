@@ -1,27 +1,27 @@
-# NgxsLoginExample
+# NGRX Login Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+This project outlines the use of `ngrx` in a standard Angular application.
 
-## Development server
+I avoid using effects in this project because I think we often use them when we shouldn't. The logic for logging in is still done in a service, the result is not returned by the service, instead, it's returned using the `ngrx dispatch(...)` function.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+There is plenty of room for improvement so feel free to submit issues and comments on the code.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In order to start this project, just run `npm start`.
 
-## Build
+## Conventions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To make things easy to pick up in your IDE, I've tried to create a naming convention. I create a folder called `store` in each feature module. The `AppState` holds the entire state of the application and each feature is added to that state.
 
-## Running unit tests
+In the `store` folder you'll find 5 files,
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- `feature.state.ts`
+- `feature.selectors.ts`
+- `feature.reducers.ts`
+- `feature.actions.ts`
+- `index.ts`
 
-## Running end-to-end tests
+The `index.ts` file just exports everything from the other files to make it easy to `import` them into `components` and `services`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+As mentioned previously, services still perform all of the logic and processing, they just dispatch the result using the store instead of returning them directly from the service.
