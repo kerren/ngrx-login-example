@@ -16,7 +16,8 @@ export function reducer(
     case Actions.ActionTypes.LOGIN_REQUEST:
       return {
         ...state,
-        submit: ElementState.create(true)
+        submit: ElementState.create(true),
+        credentials: action.payload
       };
     case ActionTypes.LOGIN_REQUEST_SUCCESS:
       return {
