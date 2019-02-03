@@ -6,7 +6,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import {environment} from '../../environments/environment';
-import {defaultLoginState, LoginState} from "../login/store/login.state";
+import {initialState, State} from "../login/store/login.state";
 
 export interface State {
 }
