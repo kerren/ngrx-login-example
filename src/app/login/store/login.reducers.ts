@@ -8,16 +8,10 @@ export function reducer(
   action: Actions.Union
 ): State.LoginState {
   switch (action.type) {
-    case Actions.ActionTypes.CHANGE_CREDENTIALS:
-      return {
-        ...state,
-        credentials: action.payload
-      };
     case Actions.ActionTypes.LOGIN_REQUEST:
       return {
         ...state,
-        submit: ElementState.create(true),
-        credentials: action.payload
+        submit: ElementState.create(true)
       };
     case ActionTypes.LOGIN_REQUEST_SUCCESS:
       return {
