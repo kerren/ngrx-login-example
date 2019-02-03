@@ -5,15 +5,18 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import {environment} from '../../environments/environment';
+import {initialState, LoginState} from "../login/store/login.state";
 
-export interface State {
+import * as LoginStore from '../login/store';
 
+export interface AppState {
+  login: LoginStore.LoginState;
 }
 
-export const reducers: ActionReducerMap<State> = {
-
+export const reducers: ActionReducerMap<AppState> = {
+  login: LoginStore.reducer
 };
 
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
