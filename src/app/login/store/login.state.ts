@@ -11,6 +11,6 @@ export interface LoginState {
 
 export const initialState: LoginState = {
   credentials: new Credentials(),
-  user: null,
+  user: new User(),
   submit: new ElementState()
 };
