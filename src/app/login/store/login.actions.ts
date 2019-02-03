@@ -27,9 +27,9 @@ export class LoginRequestSuccess implements Action {
   constructor(public payload: StandardResponseDto<User>) {}
 }
 
-export class LoginRequestFailuer implements Action {
+export class LoginRequestFailure implements Action {
   readonly type = LoginActionTypes.LOGIN_REQUEST_FAILURE;
   constructor(public payload: ErrorResponseDto<any>) {}
 }
 
-export type Union = ChangeCredentials;
+export type Union = ChangeCredentials | LoginRequest | LoginRequestSuccess | LoginRequestFailure;
