@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Credentials} from "../shared/models/user/credentials";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of, Subject} from "rxjs";
 import {StandardResponseDto} from "../shared/models/requests/standard-response.dto";
 import {User} from "../shared/models/user/user";
 import {Store} from "@ngrx/store";
@@ -15,7 +15,8 @@ export class LoginService {
 
   constructor(
     private store$: Store<AppState>
-  ) { }
+  ) {
+  }
 
   /**
    * Calls a fake login http request and dispatches the result
@@ -23,12 +24,10 @@ export class LoginService {
    */
   login(credentials: Credentials): void {
     this.store$.dispatch(new LoginRequest());
-    setTimeout(() => {
-      this.makeLoginRequest(credentials).subscribe(
-        success => this.store$.dispatch(new LoginRequestSuccess(success)),
-        error => this.store$.dispatch(new LoginRequestFailure(error))
-      );
-    }, 2000);
+    this.makeLoginRequest(credentials).subscribe(
+      success => this.store$.dispatch(new LoginRequestSuccess(success)),
+      error => this.store$.dispatch(new LoginRequestFailure(error))
+    );
   }
 
   /**
@@ -36,18 +35,28 @@ export class LoginService {
    * @param credentials The login credentials to send to the backend.
    */
   private makeLoginRequest(credentials: Credentials): Observable<StandardResponseDto<User>> {
-    if (Math.random() > 0.5) {
-      return of(StandardResponseDto.create(true, 'Login successful', new User({
-        name: 'Fake Name',
-        email: 'test@example.com',
-        token: 'abcdefghijklmnopqrstuvwxyz'
-      })));
-    }
+    const subject = new Subject<StandardResponseDto<User>>();
 
-    throw new ErrorResponseDto<any>({
-      success: false,
-      message: 'Failed to login',
-      payload: {}
-    });
+    setTimeout(() => {
+
+      const random = Math.random();
+      if (random > 0.5) {
+        subject.next(StandardResponseDto.create(true, `Login success with probability ${Math.round(random * 100)}%`, new User({
+          name: 'Fake Name',
+          email: 'test@example.com',
+          token: 'abcdefghijklmnopqrstuvwxyz'
+        })));
+      } else {
+        subject.error(new ErrorResponseDto<any>({
+          success: false,
+          message: `Failed to login with a probability of ${Math.round(random * 100)}%`,
+          payload: {}
+        }));
+      }
+
+
+    }, 500);
+
+    return subject.asObservable();
   }
 }

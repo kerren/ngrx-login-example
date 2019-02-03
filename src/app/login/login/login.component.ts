@@ -26,28 +26,27 @@ export class LoginComponent implements OnInit, OnDestroy {
     private store$: Store<AppState>,
     private loginService: LoginService
   ) {
-  }
-
-  ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
     });
+  }
 
+  ngOnInit() {
     this.submitState$ = this.store$
       .pipe(select(LoginStore.selectSubmit))
       .pipe(takeWhile(() => this.alive));
   }
 
-  onSubmit(credentials: Credentials) {
-    if (!this.form.invalid) {
+  onSubmit() {
+    if (this.form.invalid) {
       return this.store$.dispatch(new LoginStore.LoginRequestFailure({
         success: false,
         message: 'Please enter a valid email and password',
         payload: {}
       }));
     }
-
+    const credentials: Credentials = this.form.value;
     this.loginService.login(credentials);
   }
 
