@@ -10,11 +10,11 @@ import {initialState, LoginState} from "../login/store/login.state";
 
 import * as LoginStore from '../login/store';
 
-export interface State {
+export interface AppState {
   login: LoginStore.LoginState;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<AppState> = {
   login: LoginStore.reducer
 };
 
