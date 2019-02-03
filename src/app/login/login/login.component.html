@@ -1,22 +1,28 @@
 <div class="full-page" fxLayout="row" fxLayoutAlign="center center">
-  <form nz-form class="login-box">
+  <form nz-form [formGroup]="form" (ngSubmit)="onSubmit($event,validateForm.value)" class="login-box">
     <nz-form-item>
       <nz-form-label>Email</nz-form-label>
       <nz-form-control>
-        <input placeholder="email" nzSize="large" type="text" nz-input>
+        <input placeholder="email" nzSize="large" type="text" nz-input name="email" formControlName="email">
+        <nz-form-explain *ngIf="form.get('email').invalid && form.get('email').dirty">
+          Please enter a valid email address...
+        </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label>Password</nz-form-label>
       <nz-form-control>
-        <input placeholder="password" nzSize="large" type="password" nz-input>
+        <input placeholder="password" nzSize="large" type="password" nz-input name="password" formControlName="password">
       </nz-form-control>
+      <nz-form-explain *ngIf="form.get('password').invalid && form.get('password').dirty">
+        You must enter a valid password (at least 8 characters).
+      </nz-form-explain>
     </nz-form-item>
 
     <nz-form-item class="right-aligned-button">
       <nz-form-control>
-        <button nzSize="large" nz-button nzType="primary">Login</button>
+        <button nzSize="large" nz-button nzType="primary" [disabled]="form.invalid" [nzLoading]="(submitState$ | async).loading">Login</button>
       </nz-form-control>
     </nz-form-item>
   </form>

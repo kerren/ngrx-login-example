@@ -17,7 +17,11 @@ export class LoginService {
     private store$: Store<AppState>
   ) { }
 
-  login(credentials: Credentials): Observable<StandardResponseDto<User>> {
+  /**
+   * Calls a fake login http request and dispatches the result
+   * @param credentials The users login credentials
+   */
+  login(credentials: Credentials): void {
     this.store$.dispatch(new LoginRequest());
     setTimeout(() => {
       this.makeLoginRequest(credentials).subscribe(
