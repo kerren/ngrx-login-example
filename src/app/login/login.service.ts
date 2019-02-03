@@ -37,6 +37,7 @@ export class LoginService {
   private makeLoginRequest(credentials: Credentials): Observable<StandardResponseDto<User>> {
     const subject = new Subject<StandardResponseDto<User>>();
 
+    // I'm using a setTimeout to imitate an http call
     setTimeout(() => {
 
       const random = Math.random();
