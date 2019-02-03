@@ -1,10 +1,3 @@
-import * as Actions from './login.actions';
-import * as Reducers from './login.reducers';
-import * as State from './login.state';
-
-
-export {
-  Actions,
-  Reducers,
-  State
-};
+export * from './login.state';
+export * from './login.actions';
+export * from './login.reducers';

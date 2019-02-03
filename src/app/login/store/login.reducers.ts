@@ -6,7 +6,7 @@ import {ElementState} from '../../shared/models/general/element-state';
 export function reducer(
   state = State.initialState,
   action: Actions.Union
-): State.State {
+): State.LoginState {
   switch (action.type) {
     case Actions.ActionTypes.CHANGE_CREDENTIALS:
       return {
