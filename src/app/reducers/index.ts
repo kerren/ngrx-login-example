@@ -19,4 +19,4 @@ export const reducers: ActionReducerMap<AppState> = {
 };
 
 
-export const metaReducers: MetaReducer<LoginState>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
