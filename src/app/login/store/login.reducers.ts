@@ -21,12 +21,13 @@ export function reducer(
     case ActionTypes.LOGIN_REQUEST_SUCCESS:
       return {
         ...state,
-        submit: ElementState.success(action.payload.message)
+        submit: ElementState.success(action.payload.message),
+        user: action.payload.payload
       };
     case ActionTypes.LOGIN_REQUEST_FAILURE:
       return {
         ...state,
-        submit: ElementState.success(action.payload.message)
+        submit: ElementState.error(action.payload.message)
       };
     default:
       return state;
