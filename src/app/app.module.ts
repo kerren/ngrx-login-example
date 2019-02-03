@@ -12,6 +12,8 @@ import {StoreModule} from '@ngrx/store';
 import {reducers, metaReducers} from './reducers';
 import {LoginModule} from "./login/login.module";
 import {SharedModule} from "./shared/shared.module";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {environment} from "../environments/environment";
 
 registerLocaleData(en);
 
@@ -27,7 +29,11 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
-    LoginModule
+    LoginModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 100, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
