@@ -3,5 +3,7 @@
     "what-is-ngrx.html",
     "okay-what-is-state.html",
     "state-example.html",
-    "redux-summary.html"
+    "redux-summary.html",
+    "redux-summary-store.html",
+    "redux-summary-actions.html"
 ]

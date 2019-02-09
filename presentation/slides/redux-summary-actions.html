@@ -1,0 +1,23 @@
+<h2>Redux Summary - Actions</h2>
+
+<p>An action is effectively an event that should place and the payload required for the event to take place.</p>
+
+<br>
+
+<pre class="fragment fade-up"><code class="typescript">class Action {
+
+    public type: string;
+
+    constructor(public payload: any) {}
+
+}
+</code></pre>
+
+<pre class="fragment fade-up"><code class="typescript">class LoginRequestAction extends Action {
+
+    public type = '[Login] Make Login Request';
+
+    constructor(public payload: UserCredentials) {}
+
+}
+</code></pre>
