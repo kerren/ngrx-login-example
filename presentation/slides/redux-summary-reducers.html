@@ -1,0 +1,21 @@
+<h2>Redux Summary - Reducers</h2>
+
+<p>A reducer takes an action and makes a change to the state based on that action.</p>
+
+<pre class="fragment fade-up"><code class="typescript">export function reducer(state: State, action: Action): State {
+
+    switch (action.type) {
+
+        case '[Login] Login Successful':
+            return {
+                ...state,
+                user: action.payload
+            };
+
+        default:
+            return state;
+
+    }
+    
+}
+</code></pre>

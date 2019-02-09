@@ -13,11 +13,11 @@
 }
 </code></pre>
 
-<pre class="fragment fade-up"><code class="typescript">class LoginRequestAction extends Action {
+<pre class="fragment fade-up"><code class="typescript">class LoginSuccessfulAction extends Action {
 
-    public type = '[Login] Make Login Request';
+    public type = '[Login] Login Successful';
 
-    constructor(public payload: UserCredentials) {}
+    constructor(public payload: User) {}
 
 }
 </code></pre>
