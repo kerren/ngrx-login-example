@@ -8,7 +8,12 @@ There is plenty of room for improvement so feel free to submit issues and commen
 
 ## Getting Started
 
-In order to start this project, just run `npm start`.
+In order to start this project, just run,
+
+```bash
+npm install
+npm start
+```
 
 ## Conventions
 
@@ -25,3 +30,11 @@ In the `store` folder you'll find 5 files,
 The `index.ts` file just exports everything from the other files to make it easy to `import` them into `components` and `services`.
 
 As mentioned previously, services still perform all of the logic and processing, they just dispatch the result using the store instead of returning them directly from the service.
+
+## Presentation
+
+I've created a `reveal.js` presentation in the `presentation` folder. To run it, go into the folder and run:
+```bash
+npm install
+npm start
+```
