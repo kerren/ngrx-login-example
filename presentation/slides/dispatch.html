@@ -1,0 +1,22 @@
+<h2>Dispatch</h2>
+
+<p>When we want to perform an action we "dispatch" it.</p>
+
+
+<pre><code class="typescript">constructor(
+    private httpClient: HttpClient,
+    private store$: Store&lt;AppState&gt;
+) {}
+
+login(email: string, password: string) {
+    this.httpClient.post('/login', { email, password })
+        .subscribe(
+            user => this.store$.dispatch(
+                new LoginSuccessAction(user)
+            ),
+            error => this.store$.dispatch(
+                new LoginFailureAction(error)
+            ),
+        );
+}
+</code></pre>
