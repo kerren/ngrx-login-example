@@ -1,0 +1,21 @@
+<h2>Select</h2>
+
+<p>To subscribe to changes in state we use the "select" function.</p>
+
+
+<pre><code class="typescript">
+user$: Observable&lt;User&gt;
+alive = true;
+
+constructor(private store$: Store&lt;AppState&gt;) {}
+
+ngOnInit() {
+    this.user$ = this.store$.select(selectUser)
+        .pipe(takeWhile(() => this.alive));
+}
+
+ngOnDestroy() {
+    this.alive = false;
+}
+
+</code></pre>
