@@ -1,4 +1,6 @@
 [
-    "index.md",
-    "what-is-ngrx.md"
+    "index.html",
+    "what-is-ngrx.html",
+    "okay-what-is-state.html",
+    "state-example.html"
 ]
