@@ -1,0 +1,14 @@
+[
+    "index.html",
+    "what-is-ngrx.html",
+    "okay-what-is-state.html",
+    "state-example.html",
+    "redux-summary.html",
+    "redux-summary-store.html",
+    "redux-summary-actions.html",
+    "redux-summary-reducers.html",
+    "redux-summary-selectors.html",
+    "dispatch.html",
+    "select.html",
+    "give-it-a-go.html"
+]
