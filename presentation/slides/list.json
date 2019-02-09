@@ -2,5 +2,6 @@
     "index.html",
     "what-is-ngrx.html",
     "okay-what-is-state.html",
-    "state-example.html"
+    "state-example.html",
+    "redux-summary.html"
 ]
