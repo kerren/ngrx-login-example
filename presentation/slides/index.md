@@ -1,10 +1,5 @@
 
 # NGRX Login Example
 
-From the terminal, pop in:
+This presentation runs through the use of `ngrx` in an Angular 7 application to create a login screen.
 
-  ```yo reveal:slide "Slide Title"```
-
-Available options:
-
- ```--markdown --attributes --notes```
