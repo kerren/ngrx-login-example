@@ -1,0 +1,14 @@
+<h2>Redux Summary - Selectors</h2>
+
+<p>A selector allows you to take a "piece" of the state and subscribe to changes around it.</p>
+
+<pre><code class="typescript">
+
+const getUser = (state: State) => state.user;
+
+export const selectUser: MemoizedSelector&lt;object, User&gt; =
+createSelector(
+  getUser
+);
+
+</code></pre>

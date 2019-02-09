@@ -4,11 +4,11 @@
 
 <br>
 
-<pre class="fragment fade-up"><code class="typescript">class Action {
+<pre class="fragment fade-up"><code class="typescript">class Action&lt;T&gt; {
 
     public type: string;
 
-    constructor(public payload: any) {}
+    constructor(public payload: T) {}
 
 }
 </code></pre>

@@ -6,5 +6,6 @@
     "redux-summary.html",
     "redux-summary-store.html",
     "redux-summary-actions.html",
-    "redux-summary-reducers.html"
+    "redux-summary-reducers.html",
+    "redux-summary-selectors.html"
 ]
