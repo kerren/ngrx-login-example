@@ -17,6 +17,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "grunt serve"
   }
 }
