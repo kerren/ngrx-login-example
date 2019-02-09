@@ -9,5 +9,6 @@
     "redux-summary-reducers.html",
     "redux-summary-selectors.html",
     "dispatch.html",
-    "select.html"
+    "select.html",
+    "give-it-a-go.html"
 ]
